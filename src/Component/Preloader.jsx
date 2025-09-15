@@ -8,7 +8,7 @@ import {
   FaCommentDots,
 } from "react-icons/fa";
 
-import logo from "../assets/Loading page Animation 2.mp4";
+// import logo from "../assets/LoadingpageAnimation2.mp4";
 import logoTwo from "../assets/mainLogo.png";
 import bgImage from "../assets/bg.jpg";
 
@@ -20,7 +20,7 @@ function Preloader() {
       <motion.div
         initial={{ y: 30, opacity: 0.2, filter: "brightness(50%)" }}
         animate={{
-          opacity: [0.8, 0.2, 0.8], // উপরে গেলে বেশি, নিচে গেলে কম
+          opacity: [0.8, 0.2, 0.8], 
           filter: ["brightness(120%)", "brightness(50%)", "brightness(120%)"],
         }}
         transition={{
@@ -30,14 +30,15 @@ function Preloader() {
         }}
         className="relative"
       >
-        <video
-          src={logo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="relative z-10 h-70 w-50"
-        />
+      <video
+  src="/assets/LoadingpageAnimation2.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="relative z-10 h-[280px] w-[200px]"
+/>
+
       </motion.div>
     </div>
   );
