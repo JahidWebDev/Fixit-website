@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+
+
 import {
   FaFacebookF,
   FaInstagram,
@@ -8,7 +10,7 @@ import {
   FaCommentDots,
 } from "react-icons/fa";
 
-// import logo from "../assets/LoadingpageAnimation2.mp4";
+import logo from "../assets/LoadingpageAnimation2.mp4";
 import logoTwo from "../assets/mainLogo.png";
 import bgImage from "../assets/bg.jpg";
 
@@ -31,7 +33,7 @@ function Preloader() {
         className="relative"
       >
       <video
-  src="/assets/LoadingpageAnimation2.mp4"
+  src={logo}
   autoPlay
   loop
   muted
