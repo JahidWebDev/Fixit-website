@@ -8,7 +8,7 @@ import {
   FaCommentDots,
 } from "react-icons/fa";
 
-import logo from "../assets/Loading page Animation 2.mp4";
+import logo from "../assets/LoadingpageAnimationLogo.gif";
 import logoTwo from "../assets/mainLogo.png";
 import bgImage from "../assets/bg.jpg";
 
