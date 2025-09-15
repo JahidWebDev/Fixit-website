@@ -45,7 +45,7 @@ function Preloader() {
           loop
           muted
           playsInline
-          className="relative z-10 w-40 h-40 rounded-full"
+          className="relative z-10 h-70 w-50"
         />
         {/* যদি gradient overlay দিতে চান */}
         {/* <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/80 to-black/20 mix-blend-multiply"></div> */}
