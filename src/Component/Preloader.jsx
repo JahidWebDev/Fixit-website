@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFacebookF, FaInstagram, FaYoutube,  FaCommentDots} from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaCommentDots,
+} from "react-icons/fa";
 
 import logo from "../assets/Loading page Animation 2.mp4";
 import logoTwo from "../assets/mainLogo.png";
-import bgImage from "../assets/bg.jpg"; 
+import bgImage from "../assets/bg.jpg";
 
 // ================= Preloader ==================
-
-
-
-// adjust path
-// adjust your logo path
-
-// ✅ keep only this import (adjust path correctly)
-
-
-
 
 function Preloader() {
   return (
@@ -26,11 +21,7 @@ function Preloader() {
         initial={{ y: 30, opacity: 0.2, filter: "brightness(50%)" }}
         animate={{
           opacity: [0.8, 0.2, 0.8], // উপরে গেলে বেশি, নিচে গেলে কম
-          filter: [
-            "brightness(120%)",
-            "brightness(50%)",
-            "brightness(120%)",
-          ],
+          filter: ["brightness(120%)", "brightness(50%)", "brightness(120%)"],
         }}
         transition={{
           duration: 3,
@@ -47,23 +38,10 @@ function Preloader() {
           playsInline
           className="relative z-10 h-70 w-50"
         />
-        {/* যদি gradient overlay দিতে চান */}
-        {/* <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/80 to-black/20 mix-blend-multiply"></div> */}
       </motion.div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // ================= Home Page ==================
 function Home() {
@@ -74,18 +52,13 @@ function Home() {
     const endDate = new Date("2025-11-01");
     const today = new Date();
 
-    const totalDays = Math.ceil(
-      (endDate - startDate) / (1000 * 60 * 60 * 24)
-    );
+    const totalDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
     const passedDays = Math.max(
       0,
       Math.ceil((today - startDate) / (1000 * 60 * 60 * 24))
     );
 
-    const target = Math.min(
-      Math.ceil((passedDays / totalDays) * 100),
-      100
-    );
+    const target = Math.min(Math.ceil((passedDays / totalDays) * 100), 100);
 
     let current = 0;
     const step = Math.ceil(target / 60); // animation step
@@ -176,25 +149,24 @@ function Home() {
         </div>
 
         {/* Contact button */}
-     <div className="flex flex-col mt-[20px] items-center justify-center text-white text-center px-6">
-      {/* Contact + Message */}
-      <div className="flex items-center ">
-        {/* Contact Button */}
-       <div>
-         <button className="px-8  py-3 rounded-full bg-gray-200 text-black font-semibold shadow-sm hover:scale-[1.02] transition-transform">
-          CONTACT
-        </button>
-       </div>
+        <div className="flex flex-col mt-[20px] items-center justify-center text-white text-center px-6">
+          {/* Contact + Message */}
+          <div className="flex items-center ">
+            {/* Contact Button */}
+            <div>
+              <button className="px-8  py-3 rounded-full bg-gray-200 text-black font-semibold shadow-sm hover:scale-[1.02] transition-transform">
+                CONTACT
+              </button>
+            </div>
 
-        {/* Message Icon */}
-      
-      </div>
-        <div className="ml-[1300px] ">
-          <button className="flex items-center justify-center w-12 h-12 transition rounded-full bg-white/20 hover:bg-white/30">
-          <FaCommentDots className="text-2xl text-white" />
-        </button>
+            {/* Message Icon */}
+          </div>
+          <div className="ml-[1300px] ">
+            <button className="flex items-center justify-center w-12 h-12 transition rounded-full bg-white/20 hover:bg-white/30">
+              <FaCommentDots className="text-2xl text-white" />
+            </button>
+          </div>
         </div>
-    </div>
       </div>
 
       {/* About button */}
