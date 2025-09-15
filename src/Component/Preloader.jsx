@@ -14,35 +14,41 @@ import bgImage from "../assets/bg.jpg";
 // adjust path
 // adjust your logo path
 
+// ✅ keep only this import (adjust path correctly)
+
 function Preloader() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black">
-      {/* Gradient Logo Animation */}
+    <div className="flex items-center justify-center h-screen bg-black">
       <motion.div
-        initial={{ y: 30, opacity: 0.2 }}
+        initial={{ y: 30, opacity: 0.2, filter: "brightness(50%)" }}
         animate={{
-          y: [30, -30, 30],       // নিচে → উপরে → নিচে
-          opacity: [0.2, 0.8, 0.2], // নিচে 20% → ওপরে 80% → আবার 20%
+          y: [-40, 40, -40], // উপরে–নিচে (বেশি bounce চাইলে সংখ্যা বাড়ান)
+          opacity: [0.8, 0.2, 0.8], // top = 80% bottom = 20%
+          filter: [
+            "brightness(120%)", // উপরে গেলে আলো বেশি
+            "brightness(50%)",  // নিচে গেলে আলো কম
+            "brightness(120%)",
+          ],
         }}
         transition={{
-          duration: 2,
+          duration: 3, // গতি
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        
+        className="relative"
       >
-        <div className="w-[400px] h-full bg-black rounded-full flex items-center justify-center">
-          <img
-            src={logo} // আপনার logo path দিন
-            alt="My Logo"
-            className="w-28 h-28 object-contain"
-          /> 
-        </div>
+        <img
+          src={logo}
+          alt="logo"
+          className="relative z-10 w-40 h-40"
+        />
+        {/* <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/80 to-black/20 mix-blend-multiply"></div> */}
       </motion.div>
     </div>
-
   );
 }
+
+
 
 
 
@@ -90,7 +96,7 @@ function Home() {
 
   return (
     <div
-      className="relative h-screen w-full flex flex-col items-center justify-center text-white text-center px-6"
+      className="relative flex flex-col items-center justify-center w-full h-screen px-6 text-center text-white"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -106,7 +112,7 @@ function Home() {
         <img
           src={logoTwo}
           alt="Logo"
-          className="mx-auto mb-6 w-28 h-auto brightness-110"
+          className="h-auto mx-auto mb-6 w-28 brightness-110"
         />
 
         {/* Title */}
@@ -122,20 +128,20 @@ function Home() {
         <div className="w-full mt-[70px] max-w-md mx-auto">
           <div className="w-full bg-gray-700 h-3 rounded-[3px] overflow-hidden">
             <motion.div
-              className="bg-green-500 h-3 rounded-full"
+              className="h-3 bg-green-500 rounded-full"
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 1.2, ease: "easeOut" }}
             />
           </div>
-          <div className="flex justify-between text-sm text-gray-300 mt-1">
+          <div className="flex justify-between mt-1 text-sm text-gray-300">
             <span>0%</span>
             <span>{progress}%</span>
           </div>
         </div>
 
         {/* Launch date */}
-        <p className="mt-15 text-gray-300">
+        <p className="text-gray-300 mt-15">
           Official Launch Date:{" "}
           <span className="font-semibold">November 01, 2025</span>
         </p>
@@ -144,19 +150,19 @@ function Home() {
         <div className="flex justify-center gap-6 mt-6 text-xl">
           <a
             href="#"
-            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition"
+            className="flex items-center justify-center w-10 h-10 transition border rounded-full border-white/20 hover:bg-white/10"
           >
             <FaFacebookF />
           </a>
           <a
             href="#"
-            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition"
+            className="flex items-center justify-center w-10 h-10 transition border rounded-full border-white/20 hover:bg-white/10"
           >
             <FaInstagram />
           </a>
           <a
             href="#"
-            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition"
+            className="flex items-center justify-center w-10 h-10 transition border rounded-full border-white/20 hover:bg-white/10"
           >
             <FaYoutube />
           </a>
@@ -177,7 +183,7 @@ function Home() {
       
       </div>
         <div className="ml-[1300px] ">
-          <button className="w-12 h-12  flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition">
+          <button className="flex items-center justify-center w-12 h-12 transition rounded-full bg-white/20 hover:bg-white/30">
           <FaCommentDots className="text-2xl text-white" />
         </button>
         </div>
