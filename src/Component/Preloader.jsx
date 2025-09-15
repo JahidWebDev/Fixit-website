@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaYoutube,  FaCommentDots} from "react-icons/fa";
 
-import logo from "../assets/LoadingLogo.png";
+import logo from "../assets/Loading page Animation 2.mp4";
 import logoTwo from "../assets/mainLogo.png";
 import bgImage from "../assets/bg.jpg"; 
 
@@ -16,37 +16,44 @@ import bgImage from "../assets/bg.jpg";
 
 // ✅ keep only this import (adjust path correctly)
 
+
+
+
 function Preloader() {
   return (
     <div className="flex items-center justify-center h-screen bg-black">
       <motion.div
         initial={{ y: 30, opacity: 0.2, filter: "brightness(50%)" }}
         animate={{
-          y: [-40, 40, -40], // উপরে–নিচে (বেশি bounce চাইলে সংখ্যা বাড়ান)
-          opacity: [0.8, 0.2, 0.8], // top = 80% bottom = 20%
+          opacity: [0.8, 0.2, 0.8], // উপরে গেলে বেশি, নিচে গেলে কম
           filter: [
-            "brightness(120%)", // উপরে গেলে আলো বেশি
-            "brightness(50%)",  // নিচে গেলে আলো কম
+            "brightness(120%)",
+            "brightness(50%)",
             "brightness(120%)",
           ],
         }}
         transition={{
-          duration: 3, // গতি
+          duration: 3,
           repeat: Infinity,
           ease: "easeInOut",
         }}
         className="relative"
       >
-        <img
+        <video
           src={logo}
-          alt="logo"
-          className="relative z-10 w-40 h-40"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="relative z-10 w-40 h-40 rounded-full"
         />
+        {/* যদি gradient overlay দিতে চান */}
         {/* <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/80 to-black/20 mix-blend-multiply"></div> */}
       </motion.div>
     </div>
   );
 }
+
 
 
 
